@@ -13,3 +13,38 @@
  *= require_tree .
  *= require_self
  */
+
+ body {
+    background-image: url("bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-color: red; */
+
+ }
+
+ header {
+    background-color: rgba(227, 144, 73, 0.3);
+    position: absolute;
+    left: 25%;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    font-size: 6em;
+ }
+
+
+ nav {
+     background-color: rgba(227, 144, 73, 0.3);
+     position: absolute;
+     display: flex;
+     top: 15%;
+     right: 3%;
+     width: 30%;
+     padding: 5px;
+ }
+
+ .user_details {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+ }
