@@ -38,7 +38,7 @@
      position: absolute;
      display: flex;
      top: 15%;
-     right: 3%;
+     right: 5%;
      width: 30%;
      padding: 5px;
  }
@@ -47,4 +47,12 @@
     display: flex;
     width: 100%;
     justify-content: space-around;
+ }
+ main {
+   background-color: rgba(227, 144, 73, 0.3);
+   position: absolute;
+   width: 90%;
+   left: 5%;
+   top: 25%;
+   padding: 15px;
  }
