@@ -15,7 +15,7 @@
  */
 
  body {
-    background-image: url("bg-mob-skinny.jpg");
+    background-image: asset-url("bg-mob-skinny.jpg");
     background-repeat: no-repeat;
     background-size: cover;
  }
@@ -58,7 +58,7 @@
  @media (min-width: 600px) {
 
    body {
-      background-image: url("bg-web-skinny.jpg");
+      background-image: asset-url("bg-web-skinny.jpg");
       background-repeat: no-repeat;
       background-size: cover;
       height: 100%;
