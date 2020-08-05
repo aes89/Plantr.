@@ -1,8 +1,8 @@
 class ListingsController < ApplicationController
-before_action :set_listing, only: [:index, :show, :edit, :update, :destroy]
+before_action :set_listing, only: [:show, :edit, :update, :destroy]
 
     def index
-        @listing = Listings.all
+        @listing = Listing.all
     end
     
     def new
@@ -17,14 +17,17 @@ before_action :set_listing, only: [:index, :show, :edit, :update, :destroy]
     end
 
     def create
-        @listing = Listing.create(listing_params)
+        @listing = Listing.new(listing_params)
+        @listing.user_id = current_user.id
+        @listing.save
+        byebug
+
         if @listing.errors.any?
             set_material
             set_shape
             set_drainage
             set_saucer
             render "new"
-        # need to say "render "new"", using just "new" is calling the whole method.
         else 
             redirect_to listings_path
         end 

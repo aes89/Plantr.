@@ -1,0 +1,12 @@
+<h1> Browse </h1>
+
+<% @listing.each do |listing| %>
+
+<div>
+<%= listing.id %>
+<%= listing.title %>
+<%= listing.description %>
+
+<%= link_to "Edit", edit_listing_path(listing.id) %>
+</div>
+<% end %>
