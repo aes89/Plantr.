@@ -55,7 +55,7 @@ before_action :set_drainage, :set_material, :set_saucer, :set_shape, only: [:new
         private
 
     def listing_params
-        params.require(:listing).permit(:title, :description, :material, :height, :width, :shape, :drainage, :saucer, :price)
+        params.require(:listing).permit(:title, :description, :material, :height, :width, :shape, :drainage, :saucer, :price, :picture)
     end
 
     def set_listing
