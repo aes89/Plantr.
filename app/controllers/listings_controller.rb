@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
 before_action :set_listing, only: [:show, :edit, :update, :destroy]
+before_action :set_drainage, :set_material, :set_saucer, :set_shape, only: [:new, :edit, :update]
 
     def index
         @listing = Listing.all
@@ -7,20 +8,21 @@ before_action :set_listing, only: [:show, :edit, :update, :destroy]
     
     def new
         @listing = Listing.new
-        @material = Listing.materials.keys
-        @shape = Listing.shapes.keys
-        @drainage = Listing.drainages.keys
-        @saucer = Listing.saucers.keys
+        # @material = Listing.materials.keys
+        # @shape = Listing.shapes.keys
+        # @drainage = Listing.drainages.keys
+        # @saucer = Listing.saucers.keys
     end
 
     def show
     end
 
     def create
-        @listing = Listing.new(listing_params)
-        @listing.user_id = current_user.id
-        @listing.save
-        byebug
+        # @listing = Listing.new(listing_params)
+        # @listing.user_id = current_user.id
+        # @listing.save
+
+        @listing = current_user.listings.create(listing_params)
 
         if @listing.errors.any?
             set_material
@@ -33,28 +35,40 @@ before_action :set_listing, only: [:show, :edit, :update, :destroy]
         end 
 
     end
-      
-    def update
-       
-    end
 
     def edit
-    
+       
+    end
+      
+    def update
+        @listing.user_id = current_user.id
+        @listing.save
+        if @listing.update(listing_params)
+            redirect_to listings_path
+        else    
+            set_material
+            set_shape
+            set_drainage
+            set_saucer
+            render "new"
+        end
     end
 
     def destroy
-        
+        @listing.destroy
+        redirect_to listings_path
     end
 
-    private
+        private
 
     def listing_params
         params.require(:listing).permit(:title, :description, :material, :height, :width, :shape, :drainage, :saucer, :price)
     end
 
     def set_listing
+        # @listing = Listing.find(params[:id])
         id = params[:id]
-        @listing = Listing.find(:id)
+        @listing = Listing.find(id)
     end
 
     def set_material

@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 2020_08_05_035916) do
     t.float "width"
     t.integer "shape"
     t.float "price"
-    t.boolean "drainage"
-    t.boolean "saucer"
+    t.integer "drainage"
+    t.integer "saucer"
     t.integer "material"
     t.string "colour"
     t.datetime "created_at", precision: 6, null: false

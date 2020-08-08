@@ -1,0 +1,61 @@
+
+
+<% if @listing.errors.any?%>
+    <% @listing.errors.full_messages.each do |error_message| %>
+        <p><%= error_message %>
+            </p>
+    <%end %>
+<% end %>
+
+<%= form_with(model: @listing, local:true) do |form| %>
+    <div>
+        <%= form.label :title %>
+        <%= form.text_field :title %>
+    </div>
+    <div>
+        <%= form.label :description %>
+        <%= form.text_area :description %>
+    </div>
+
+    <% @material.each do |option| %>
+        <div>
+            <%= form.label option %>
+            <%= form.radio_button :material, option  %>
+        </div>
+    <% end %>
+    <div>
+        <%= form.label :height %>
+        <%= form.number_field :height, min:0 %>
+    </div>
+    <div>
+        <%= form.label :width %>
+        <%= form.number_field :width, min:0%>
+    </div>
+      <% @shape.each do |option| %>
+        <div>
+            <%= form.label option %>
+            <%= form.radio_button :shape, option  %>
+        </div>
+    <% end %>
+     <% @drainage.each do |option| %>
+        <div>
+            <%= form.label option %>
+            <%= form.radio_button :drainage, option  %>
+        </div>
+    <% end %>
+     <% @saucer.each do |option| %>
+        <div>
+            <%= form.label option %>
+            <%= form.radio_button :saucer, option  %>
+        </div>
+    <% end %>
+    <div>
+        <%= form.label :price %>
+        <%= form.number_field :price, min:0 %>
+    </div>
+
+    <div>
+        <%= form.submit %>
+    </div>
+
+<% end %>
