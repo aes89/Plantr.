@@ -8,20 +8,13 @@ before_action :set_drainage, :set_material, :set_saucer, :set_shape, only: [:new
     
     def new
         @listing = Listing.new
-        # @material = Listing.materials.keys
-        # @shape = Listing.shapes.keys
-        # @drainage = Listing.drainages.keys
-        # @saucer = Listing.saucers.keys
+        
     end
 
     def show
     end
 
     def create
-        # @listing = Listing.new(listing_params)
-        # @listing.user_id = current_user.id
-        # @listing.save
-
         @listing = current_user.listings.create(listing_params)
 
         if @listing.errors.any?

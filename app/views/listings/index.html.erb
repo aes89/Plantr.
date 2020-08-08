@@ -7,6 +7,7 @@
 <%= listing.title %>
 <%= listing.description %>
 
-<%= link_to "Edit", edit_listing_path(listing.id) %>
+<%= link_to "Edit", edit_listing_path(listing.id), method: :delete if current_user.id == listing.user_id  %>
+<%= link_to "Delete", listing_path(listing.id), method: :delete if current_user.id == listing.user_id  %>
 </div>
 <% end %>
