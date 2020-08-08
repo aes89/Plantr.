@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # delete "/listing/:id", to: "listings#destroy"
   # get "/listing/:id/edit", to: "listings#edit", as: "edit_listing"
 
-  # get "*path", to:"page#not_found"
+  get "/404", to: "errors#not_found"
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

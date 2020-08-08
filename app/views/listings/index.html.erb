@@ -4,9 +4,8 @@
 
 <div>
 <%= image_tag listing.picture if listing.picture.attached? %>
-<%= listing.id %>
 <%= listing.title %>
-<%= listing.description %>
+$<%= listing.price %>
 
 <%= link_to "Edit", edit_listing_path(listing.id) if current_user.id == listing.user_id %>
 <%= link_to "Delete", listing_path(listing.id), method: :delete if current_user.id == listing.user_id  %>
