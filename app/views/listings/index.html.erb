@@ -2,13 +2,18 @@
 
 <% @listing.each do |listing| %>
 
-<div>
-<%= image_tag listing.picture if listing.picture.attached? %>
-<%= listing.title %>
-$<%= listing.price %>
-
-<%= link_to "view", listing_path(listing) %>
-<%= link_to "Edit", edit_listing_path(listing.id) if current_user.id == listing.user_id %>
-<%= link_to "Delete", listing_path(listing.id), method: :delete if current_user.id == listing.user_id  %>
+<div class="listing">
+    <div class="BrowseImage">
+        <%= image_tag listing.picture if listing.picture.attached? %>
+    </div>
+    <div class="input">
+        <%= listing.title %>
+        $<%= listing.price %>
+    </div>
+    <div class="UserButtons">
+        <%= link_to "view", listing_path(listing) %>
+        <%= link_to "Edit", edit_listing_path(listing.id) if current_user.id == listing.user_id %>
+        <%= link_to "Delete", listing_path(listing.id), method: :delete if current_user.id == listing.user_id  %>
+    </div>
 </div>
 <% end %>

@@ -46,11 +46,17 @@ body {
  }
 
  .listing {
-   //  display: flex;
+   padding: 10px;
+   margin: 10px;
+   background-color: rgba(225, 155, 94, 0.2);
  }
+
 .ListingImage{
    display: flex;
    justify-content: space-around;
+}
+
+.BrowseImage {
 }
 
 .ListingWrapper {

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # patch "/listing/:id", to: "listings#update"
   # delete "/listing/:id", to: "listings#destroy"
   # get "/listing/:id/edit", to: "listings#edit", as: "edit_listing"
+  get "/payments/success", to: "payments#success"
 
   get "/404", to: "errors#not_found"
 
