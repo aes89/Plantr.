@@ -35,6 +35,7 @@ gem 'aws-sdk-s3', require: false
 
 # payment
 gem 'stripe', '~> 5.22'
+gem 'ultrahook'
 
 
 group :development, :test do

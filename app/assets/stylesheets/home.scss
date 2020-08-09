@@ -8,6 +8,7 @@ body {
     background-image: url("bg-mob-skinny.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
  }
 
  header {
@@ -86,5 +87,6 @@ body {
       background-repeat: no-repeat;
       background-size: cover;
       height: 100%;
+      background-attachment: fixed;
    }
  }

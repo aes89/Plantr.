@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   # delete "/listing/:id", to: "listings#destroy"
   # get "/listing/:id/edit", to: "listings#edit", as: "edit_listing"
   get "/payments/success", to: "payments#success"
+  post "/payments/webhook", to: "payments#webhook"
+
 
   get "/404", to: "errors#not_found"
 
