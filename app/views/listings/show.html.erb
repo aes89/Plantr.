@@ -1,23 +1,102 @@
-<%= image_tag @listing.picture if @listing.picture.attached? %>
-<%= @listing.title %>
-$<%= @listing.price %>
+<div class="listing">
+    <div class="ListingImage"> 
+        <%= image_tag @listing.picture if @listing.picture.attached? %>
+    </div>
+    <div class="ListingWrapper">
+        <div class="label">
+            Title:
+        </div>
+        <div class="input">
+            <%= @listing.title %>
+        </div>
+    </div>
+     <div class="ListingWrapper">
+        <div class="label">
+            Description:
+        </div>
+        <div class="input">
+            <%= @listing.description %>
+        </div>
+    </div>
+     <div class="ListingWrapper">
+        <div class="label">
+            Price:
+        </div>
+        <div class="input">
+            $<%= @listing.price %>
+        </div>
+    </div>
+     <div class="ListingWrapper">
+        <div class="label">
+            Material:
+        </div>
+        <div class="input">
+            <%= @listing.material %>
+        </div>
+    </div>
+     <div class="ListingWrapper">
+        <div class="label">
+            Height:
+        </div>
+        <div class="input">
+            <%= @listing.height %>cm
+        </div>
+    </div>
+    <div class="ListingWrapper">
+        <div class="label">
+            Width/Diameter:
+        </div>
+        <div class="input">
+            <%= @listing.width %>cm
+        </div>
+    </div>
+     <div class="ListingWrapper">
+        <div class="label">
+            Shape:
+        </div>
+        <div class="input">
+            <%= @listing.shape %>
+        </div>
+    </div>
+     <div class="ListingWrapper">
+        <div class="label">
+            Drainage:
+        </div>
+        <div class="input">
+            <%= @listing.drainage %>
+        </div>
+    </div>
+     <div class="ListingWrapper">
+        <div class="label">
+            Saucer:
+        </div>
+        <div class="input">
+            <%= @listing.saucer %>
+        </div>
+    </div>
+    <div>
 
-<button data-stripe="payment">
-  Buy Now! <%= number_to_currency(@listing.price) %>
-</button>
+    <div class="submit">
 
-<script src="https://js.stripe.com/v3/"></script>
+        <button data-stripe="payment">
+            Buy Now! <%= number_to_currency(@listing.price) %>
+        </button>
 
-<script>
-  document
-    .querySelector("[data-stripe='payment']")
-    .addEventListener("click", () => {
-      const stripe = Stripe(
-        "<%= Rails.application.credentials.dig(:stripe, :public_key) %>"
-      );
+        <script src="https://js.stripe.com/v3/"></script>
 
-      stripe.redirectToCheckout({
-        sessionId: "<%= @session_id %>"
-      });
-    });
-</script>
+        <script>
+            document
+                .querySelector("[data-stripe='payment']")
+                .addEventListener("click", () => {
+                const stripe = Stripe(
+                    "<%= Rails.application.credentials.dig(:stripe, :public_key) %>"
+                );
+
+                stripe.redirectToCheckout({
+                    sessionId: "<%= @session_id %>"
+                });
+                });
+        </script>
+    </div>
+
+</div>

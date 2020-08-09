@@ -8,59 +8,109 @@
 <% end %>
 
 <%= form_with(model: @listing, local:true) do |form| %>
-    <div>
+<div class="ListingWrapper">
+    <div class="label">
         <%= form.label :title %>
+    </div>
+    <div class="input">
         <%= form.text_field :title %>
     </div>
-    <div>
+</div>
+<div class="ListingWrapper">
+    <div class="label">
         <%= form.label :description %>
+    </div>
+    <div class="input">
         <%= form.text_area :description %>
     </div>
-
+</div>
+<div class="ListingWrapper">
+    <div class="label">
+    Material:
+    </div>
+    <div class="input">
     <% @material.each do |option| %>
         <div>
             <%= form.label option %>
             <%= form.radio_button :material, option  %>
         </div>
     <% end %>
-    <div>
+    </div>
+</div>
+<div class="ListingWrapper">
+    <div class="label">
         <%= form.label :height %>
+    </div>
+    <div class="input">
         <%= form.number_field :height, min:0 %>
     </div>
-    <div>
+</div>
+<div class="ListingWrapper">
+    <div class="label">
         <%= form.label :width %>
+    </div>
+    <div class="input">
         <%= form.number_field :width, min:0%>
     </div>
+</div>
+<div class="ListingWrapper">
+    <div class="label">
+        Shape:
+    </div>
+    <div class="input">
       <% @shape.each do |option| %>
         <div>
             <%= form.label option %>
             <%= form.radio_button :shape, option  %>
         </div>
     <% end %>
-     <% @drainage.each do |option| %>
-        <div>
-            <%= form.label option %>
-            <%= form.radio_button :drainage, option  %>
-        </div>
-    <% end %>
-     <% @saucer.each do |option| %>
+    </div>
+</div>
+<div class="ListingWrapper">
+    <div class="label">
+        Drainage:
+    </div>
+    <div class="input">
+        <% @drainage.each do |option| %>
+            <div>
+                <%= form.label option %>
+                <%= form.radio_button :drainage, option  %>
+            </div>
+        <% end %>
+    </div>
+</div>
+<div class="ListingWrapper">
+    <div class="label">
+        Saucer:
+    </div>
+    <div class="input">
+        <% @saucer.each do |option| %>
         <div>
             <%= form.label option %>
             <%= form.radio_button :saucer, option  %>
         </div>
     <% end %>
-    <div>
+    </div>
+</div>
+<div class="ListingWrapper">
+    <div class="label">
         <%= form.label :price %>
+    </div>
+    <div class="input">
         <%= form.number_field :price, min:0 %>
     </div>
-
-      <div>
+</div>
+<div class="ListingWrapper">
+    <div class="label">
         <%= form.label :picture %>
+    </div>
+    <div class="input">
         <%= form.file_field :picture %>
     </div>
+</div>
 
-    <div>
-        <%= form.submit %>
-    </div>
+<div class="submit">
+    <%= form.submit %>
+</div>
 
 <% end %>
