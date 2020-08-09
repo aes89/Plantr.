@@ -7,6 +7,7 @@
 <%= listing.title %>
 $<%= listing.price %>
 
+<%= link_to "view", listing_path(listing) %>
 <%= link_to "Edit", edit_listing_path(listing.id) if current_user.id == listing.user_id %>
 <%= link_to "Delete", listing_path(listing.id), method: :delete if current_user.id == listing.user_id  %>
 </div>

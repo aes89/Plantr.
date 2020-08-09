@@ -31,8 +31,10 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 # AWS photo upload stoprage
-gem "aws-sdk-s3", require: false
+gem 'aws-sdk-s3', require: false
 
+# payment
+gem 'stripe', '~> 5.22'
 
 
 group :development, :test do

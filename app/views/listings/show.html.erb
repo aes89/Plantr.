@@ -1,0 +1,23 @@
+<%= image_tag @listing.picture if @listing.picture.attached? %>
+<%= @listing.title %>
+$<%= @listing.price %>
+
+<button data-stripe="payment">
+  Buy Now! <%= number_to_currency(@listing.price) %>
+</button>
+
+<script src="https://js.stripe.com/v3/"></script>
+
+<script>
+  document
+    .querySelector("[data-stripe='payment']")
+    .addEventListener("click", () => {
+      const stripe = Stripe(
+        "<%= Rails.application.credentials.dig(:stripe, :public_key) %>"
+      );
+
+      stripe.redirectToCheckout({
+        sessionId: "<%= @session_id %>"
+      });
+    });
+</script>
