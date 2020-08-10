@@ -3,3 +3,4 @@
 <%= comment.body %>
 <%= link_to "Delete", [comment.listing, comment], method: :delete, data: {confirm: "Are you sure?"} %>
 </div>
+<%# how to add this :  if current_user.id == listing.user_id %>
