@@ -1,15 +1,13 @@
 Rails.application.routes.draw do
+
   devise_for :users
   root 'page#home'
-  resources :listings
+  resources :listings do
+    resources :comments
+  end
+  
+  post "listing/:listing_id/comment/:comment_id", to: "comments#create", as: "create_comment"
 
-  # get "/listing", to: "listings#index"
-  # post "/listing", to: "listings#create"
-  # get "/listing/new", to: "listings#new", as: "new_listing"
-  # put "/listing/:id", to: "listings#update"
-  # patch "/listing/:id", to: "listings#update"
-  # delete "/listing/:id", to: "listings#destroy"
-  # get "/listing/:id/edit", to: "listings#edit", as: "edit_listing"
   get "/payments/success", to: "payments#success"
   post "/payments/webhook", to: "payments#webhook"
 

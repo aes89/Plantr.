@@ -100,3 +100,16 @@
     </div>
 
 </div>
+
+
+
+<h3>Comments</h3>
+<% @comments.each do |comment| %>
+  <div>
+    <strong><%= @comments.user_id %></strong>
+    <br>
+    <p><%= @comments.comment_body %></p>
+    <p><%= link_to 'Delete', listing_comment_path(@comments), method: :delete, data: { confirm: 'Are you sure?' } %> </p>
+  </div>
+<% end %>
+<%= render partial: 'comments/form', locals: { comment: @comment, listing: @listing } %>

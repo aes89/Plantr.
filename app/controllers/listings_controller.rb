@@ -5,19 +5,20 @@ before_action :set_drainage, :set_material, :set_saucer, :set_shape, only: [:new
     def index
         @listing = Listing.all
     end
-    
-    def new
-        @listing = Listing.new
-        
-    end
+
 
     def show
+        @comment = Comment.new
+        @comments = @listing.comments.all   
+        # @comments = @listing.comments.build
+
         session = Stripe::Checkout::Session.create(
             payment_method_types: ['card'],
             customer_email: current_user.email,
             line_items: [{
                 name: @listing.title,
                 description: @listing.description,
+                # you need to fix this -> (@listing.floating_point_price * 100).to_i ??
                 amount: @listing.price.to_i * 100,
                 currency: 'aud',
                 quantity: 1,
@@ -33,6 +34,14 @@ before_action :set_drainage, :set_material, :set_saucer, :set_shape, only: [:new
         )
     
         @session_id = session.id
+
+    end
+    
+    def new
+        @listing = Listing.new
+    end
+
+    def edit
     end
 
     def create
@@ -48,10 +57,6 @@ before_action :set_drainage, :set_material, :set_saucer, :set_shape, only: [:new
             redirect_to listings_path
         end 
 
-    end
-
-    def edit
-       
     end
       
     def update

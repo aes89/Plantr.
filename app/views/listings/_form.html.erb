@@ -42,7 +42,7 @@
         <%= form.label :height %>
     </div>
     <div class="input">
-        <%= form.number_field :height, min:0 %>
+        <%= form.number_field :height, min:0 %>cm
     </div>
 </div>
 <div class="ListingWrapper">
@@ -50,7 +50,7 @@
         <%= form.label :width %>
     </div>
     <div class="input">
-        <%= form.number_field :width, min:0%>
+        <%= form.number_field :width, min:0%>cm
     </div>
 </div>
 <div class="ListingWrapper">
@@ -97,7 +97,8 @@
         <%= form.label :price %>
     </div>
     <div class="input">
-        <%= form.number_field :price, min:0 %>
+        <%= form.number_field :price, min:0%>
+        <%# add , step: 0.01 above %>
     </div>
 </div>
 <div class="ListingWrapper">
