@@ -12,6 +12,8 @@ before_action :set_drainage, :set_material, :set_saucer, :set_shape, only: [:new
     end
 
     def show
+        @comments = @listing.comments.all
+
         session = Stripe::Checkout::Session.create(
             payment_method_types: ['card'],
             customer_email: current_user.email,

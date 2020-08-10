@@ -2,6 +2,7 @@ class Listing < ApplicationRecord
     belongs_to :user
     # has_many :comments
     has_one_attached :picture
+    has_many :comments, dependent: :destroy
     
     enum material: {unknown: 0, plastic: 1, cement: 2, teracotta: 3, ceramic: 4, metal: 5, wicker: 6, wire: 7}
     enum shape: {other: 0, round: 1, square: 2}
