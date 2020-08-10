@@ -27,7 +27,10 @@ class CommentsController < ApplicationController
     end
 
     def destroy
-        
+        @listing = Listing.find(params[:listing_id])
+        @comment = @listing.comments.find(params[:id])
+        @comment.destroy
+        redirect_to listing_path(@listing)
     end
 
         private
