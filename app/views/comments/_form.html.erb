@@ -3,15 +3,19 @@
 <%# <% if @listing.errors.any?%>
     <%# <% @listing.errors.full_messages.each do |error_message| %> 
         <%# <p><%= error_message %> 
-            </p>
+            <%# </p> %>
     <%# <%end %> 
 <%# <% end %> 
 <div class="ListingWrapper">
-<%= form_for([@listing, @listing.comments.build]) do |f| %>
-
-
-<%= f.label :Comment %>
-<%= f.text_area :body %>
-<%= f.submit %> 
-<% end %>
+    <%= form_for([@listing, @listing.comments.build]) do |f| %>
+    <div class="label">
+        <%= f.label :Comment %>
+    </div>
+    <div class="input">
+        <%= f.text_area :body %>
+    </div>
 </div>
+<div class ="submit">
+    <%= f.submit %> 
+</div>
+<% end %>
