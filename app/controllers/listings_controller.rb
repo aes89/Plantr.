@@ -1,9 +1,11 @@
 class ListingsController < ApplicationController
 before_action :set_listing, only: [:show, :edit, :update, :destroy]
+
 before_action :set_drainage, :set_material, :set_saucer, :set_shape, only: [:new, :edit, :update]
 
     def index
         @listing = Listing.all
+        @user_listing = Listing.where(:user_id => current_user.id)
     end
     
     def new
@@ -13,6 +15,7 @@ before_action :set_drainage, :set_material, :set_saucer, :set_shape, only: [:new
 
     def show
         @comments = @listing.comments.all
+
 
         session = Stripe::Checkout::Session.create(
             payment_method_types: ['card'],

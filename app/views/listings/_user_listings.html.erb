@@ -1,0 +1,15 @@
+my listings:
+
+<% @user_listing.each do |listing| %>
+
+<div class="listing">
+    <div class="BrowseImage">
+        <%= image_tag listing.picture if listing.picture.attached? %>
+    </div>
+    <div class="input">
+        <%= listing.title %>
+        $<%= listing.price %>
+    </div>
+    
+</div>
+<% end %>
