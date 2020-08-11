@@ -1,6 +1,12 @@
 <div class="label">
-<%= comment.name %>
+<% @comments.each do |comment| %>
+
+<%# Not ideal, refactor calling user name for less DB calls. %>
+<%= "#{User.find(comment.user_id).name}" %>
+<%# <%= comment.name %> %>
 <%= comment.body %>
 <%= link_to "Delete", [comment.listing, comment], method: :delete, data: {confirm: "Are you sure?"} %>
+<% end %>
 </div>
 <%# how to add this :  if current_user.id == listing.user_id %>
+

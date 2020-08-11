@@ -111,5 +111,6 @@
 
 <h3>Comments</h3>
 
-<%= render @listing.comments %>
+<%# <%= render @listing.comments %> %>
+<%= render partial: 'comments/comment', locals: { comment: @comments } %>
 <%= render partial: 'comments/form', locals: { comment: @comment } %>
