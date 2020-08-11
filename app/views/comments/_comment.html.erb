@@ -1,12 +1,19 @@
-<div class="label">
-<% @comments.each do |comment| %>
+<h3>Comments</h3>
 
-<%# Not ideal, refactor calling user name for less DB calls. %>
-<%= "#{User.find(comment.user_id).name}" %>
-<%# <%= comment.name %> %>
-<%= comment.body %>
-<%= link_to "Delete", [comment.listing, comment], method: :delete, data: {confirm: "Are you sure?"} if current_user.id == @listing.user_id %>
-<% end %>
+<% @comments.each do |comment| %>
+<div class="ListingWrapper">
+
+    <div class="label">
+        <%# Not ideal, refactor calling user name for less DB calls. %>
+        <%= "#{User.find(comment.user_id).name}" %>
+    </div>
+
+    <div class="input">
+        <%= comment.body %>
+    </div>
+    <div class="submit">
+        <%= link_to "Delete", [comment.listing, comment], method: :delete, data: {confirm: "Are you sure?"} if current_user.id == @listing.user_id %>
+    </div>
 </div>
-<%# how to add this :  if current_user.id == listing.user_id %>
+<% end %>
 

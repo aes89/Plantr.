@@ -17,9 +17,6 @@ class CommentsController < ApplicationController
 
     def create
         @listing = Listing.find(params[:listing_id])
-        # @user = User.find(params[:user_id])
-        # @comment = current_user.comments.create(comment_params)
-        # @comments = @listing.comments.create(params[:comment].permit(:name, :body))
         @comments = @listing.comments.new(comment_params)
         @comments.user_id = current_user.id
         @comments.save
