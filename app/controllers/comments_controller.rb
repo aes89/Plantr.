@@ -16,6 +16,10 @@ class CommentsController < ApplicationController
     end
 
     def create
+        puts "******************"
+        puts params
+        puts "******************"
+
         @listing = Listing.find(params[:listing_id])
         @comments = @listing.comments.new(comment_params)
         @comments.user_id = current_user.id

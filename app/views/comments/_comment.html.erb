@@ -7,7 +7,7 @@
         <%# Not ideal, refactor calling user name for less DB calls. %>
         <%= "#{User.find(comment.user_id).name}" %>
          <p>
-         <%= link_to "Delete", [comment.listing, comment], method: :delete, data: {confirm: "Are you sure?"} if current_user.id == @listing.user_id %>
+         <%= link_to "Delete", [comment.listing, comment], method: :delete, data: {confirm: "Are you sure?"} if current_user.id == @listing.seller_id %>
         </p>
     </div>
 
