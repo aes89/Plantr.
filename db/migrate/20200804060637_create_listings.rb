@@ -11,7 +11,10 @@ class CreateListings < ActiveRecord::Migration[6.0]
       t.integer :saucer
       t.integer :material
       t.string :colour
-
+      t.references :seller
+      t.references :buyer
+      t.boolean :available, default: true
+      
       t.timestamps
     end
   end

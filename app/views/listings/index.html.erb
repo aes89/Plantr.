@@ -12,8 +12,8 @@
     </div>
     <div class="UserButtons">
         <%= link_to "view", listing_path(listing) %>
-        <%= link_to "Edit", edit_listing_path(listing.id) if current_user.id == listing.user_id %>
-        <%= link_to "Delete", listing_path(listing.id), method: :delete, data: {confirm: "Are you sure?"} if current_user.id == listing.user_id %>
+        <%= link_to "Edit", edit_listing_path(listing.id) if current_user.id == listing.seller_id %>
+        <%= link_to "Delete", listing_path(listing.id), method: :delete, data: {confirm: "Are you sure?"} if current_user.id == listing.seller_id %>
     </div>
 </div>
 <% end %>

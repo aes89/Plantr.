@@ -1,6 +1,7 @@
 class Listing < ApplicationRecord
-    belongs_to :user
-    # has_many :comments
+    # belongs_to :user
+    belongs_to :seller, :class_name => 'User'
+    has_one :buyer, :class_name => 'User'
     has_one_attached :picture
     has_many :comments, dependent: :destroy
     

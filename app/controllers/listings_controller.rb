@@ -1,11 +1,11 @@
 class ListingsController < ApplicationController
 before_action :set_listing, only: [:show, :edit, :update, :destroy]
-
+before_action :authenticate_user!
 before_action :set_drainage, :set_material, :set_saucer, :set_shape, only: [:new, :edit, :update]
 
     def index
         @listing = Listing.all
-        @user_listing = Listing.where(:user_id => current_user.id)
+        @user_listing = Listing.where(:seller_id => current_user.id)
     end
     
     def new
@@ -14,6 +14,7 @@ before_action :set_drainage, :set_material, :set_saucer, :set_shape, only: [:new
     end
 
     def show
+
         @comments = @listing.comments.all
 
 
@@ -41,18 +42,26 @@ before_action :set_drainage, :set_material, :set_saucer, :set_shape, only: [:new
     end
 
     def create
-        @listing = current_user.listings.create(listing_params)
+        @listing = current_user.owned_listings.create(listing_params)
 
-        if @listing.errors.any?
-            set_material
-            set_shape
-            set_drainage
-            set_saucer
-            render "new"
-        else 
-            redirect_to listings_path
-        end 
+        # @listing = Listing.new(listing_params)
+        @listing.seller_id = current_user.id
+        @listing.buyer_id = "temp"
 
+        puts "-------"
+        pp params
+        puts "-------"
+
+            if @listing.errors.any?
+                set_material
+                set_shape
+                set_drainage
+                set_saucer
+                render "new"
+            else 
+                @listing.save
+                redirect_to listings_path
+            end 
     end
 
     def edit
@@ -60,8 +69,9 @@ before_action :set_drainage, :set_material, :set_saucer, :set_shape, only: [:new
     end
       
     def update
-        @listing.user_id = current_user.id
+        @listing.seller_id = current_user.id
         @listing.save
+
         if @listing.update(listing_params)
             redirect_to listings_path
         else    
@@ -73,6 +83,8 @@ before_action :set_drainage, :set_material, :set_saucer, :set_shape, only: [:new
         end
     end
 
+
+
     def destroy
         @listing.destroy
         redirect_to listings_path
@@ -81,7 +93,7 @@ before_action :set_drainage, :set_material, :set_saucer, :set_shape, only: [:new
         private
 
     def listing_params
-        params.require(:listing).permit(:title, :description, :material, :colour, :height, :width, :shape, :drainage, :saucer, :price, :picture)
+        params.require(:listing).permit(:title, :description, :material, :colour, :height, :width, :shape, :drainage, :saucer, :price, :picture, :seller_id, :available, :buyer_id)
     end
 
     def set_listing

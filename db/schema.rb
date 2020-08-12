@@ -56,10 +56,13 @@ ActiveRecord::Schema.define(version: 2020_08_11_030822) do
     t.integer "saucer"
     t.integer "material"
     t.string "colour"
+    t.bigint "seller_id"
+    t.bigint "buyer_id"
+    t.boolean "available", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_listings_on_user_id"
+    t.index ["buyer_id"], name: "index_listings_on_buyer_id"
+    t.index ["seller_id"], name: "index_listings_on_seller_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -77,5 +80,4 @@ ActiveRecord::Schema.define(version: 2020_08_11_030822) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "users"
-  add_foreign_key "listings", "users"
 end
