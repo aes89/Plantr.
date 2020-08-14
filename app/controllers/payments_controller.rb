@@ -12,11 +12,14 @@ class PaymentsController < ApplicationController
         buyer_id = payment.metadata.buyer_id
         # user_id = payment.metadata.user_id
         Listing.find(listing_id).update(buyer_id: buyer_id)
-    
+        puts "++++++++++++++++++++PAYMENTS"
         p "listing id " + listing_id
         p "buyer id " + buyer_id
         # p "user id " + user_id
-    
+   
+        pp params
         status 200
     end
+
+
 end

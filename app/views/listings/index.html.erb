@@ -1,35 +1,37 @@
 <h1> Browse </h1>
 
-<% @listing.each do |listing| %>
 
-<div class="listing">
-    <div class="BrowseImage">
-        <%= image_tag listing.picture if listing.picture.attached? %>
-    </div>
-    <div class="input">
-        <%= listing.title %>
-        $<%= listing.price %>
-    </div>
-    <div class="UserButtons">
-        <%= link_to "view", listing_path(listing) %>
-        <%= link_to "Edit", edit_listing_path(listing.id) if current_user.id == listing.seller_id %>
-        <%= link_to "Delete", listing_path(listing.id), method: :delete, data: {confirm: "Are you sure?"} if current_user.id == listing.seller_id %>
-    </div>
-</div>
+ <% @listing.each do |listing| %>
+    <% if(listing.available == true) %>
+        <div class="listing">
+            <div class="BrowseImage">
+                <%= image_tag listing.picture if listing.picture.attached? %>
+            </div>
+            <div class="input">
+                <%= listing.title %>
+                $<%= listing.price %>
+            </div>
+            <div class="UserButtons">
+                <%= link_to "view", listing_path(listing) %>
+                <%= link_to "Edit", edit_listing_path(listing.id) if current_user.id == listing.seller_id %>
+                <%= link_to "Delete", listing_path(listing.id), method: :delete, data: {confirm: "Are you sure?"} if current_user.id == listing.seller_id %>
+            </div>
+        </div>
+    <% end %>
 <% end %>
 
-my listings:
+            my USERTRESYTDJYYJR listings:
 
-<% @user_listing.each do |listing| %>
+    <% @user_listing.each do |listing| %>
 
-<div class="listing">
-    <div class="BrowseImage">
-        <%= image_tag listing.picture if listing.picture.attached? %>
-    </div>
-    <div class="input">
-        <%= listing.title %>
-        $<%= listing.price %>
-    </div>
-    
-</div>
-<% end %>
+            <div class="listing">
+                <div class="BrowseImage">
+                    <%= image_tag listing.picture if listing.picture.attached? %>
+                </div>
+                <div class="input">
+                    <%= listing.title %>
+                    $<%= listing.price %>
+                </div>
+                
+            </div>
+    <% end %>

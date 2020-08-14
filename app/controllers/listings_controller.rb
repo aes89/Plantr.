@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
-before_action :set_listing, only: [:show, :edit, :update, :destroy]
 before_action :authenticate_user!
-before_action :set_drainage, :set_material, :set_saucer, :set_shape, only: [:new, :edit, :update]
+before_action :set_listing, only: [:show, :edit, :update, :destroy, :buy]
+before_action :set_drainage, :set_material, :set_saucer, :set_shape, only: [:new, :edit, :update, :buy]
 
     def index
         @listing = Listing.all
@@ -30,15 +30,19 @@ before_action :set_drainage, :set_material, :set_saucer, :set_shape, only: [:new
             }],
             payment_intent_data: {
                 metadata: {
-                    user_id: current_user.id,
+                    buyer_id: current_user.id,
                     listing_id: @listing.id
                 }
             },
-            success_url: "#{root_url}payments/success?userId=#{current_user.id}&listingId=#{@listing.id}",
+            # success_url: "#{root_url}payments/success?buyerId=#{current_user.id}&listingId=#{@listing.id}",
+            success_url: "#{root_url}payments/success?buyerId=#{current_user.id}&listingId=#{@listing.id}",
             cancel_url: "#{root_url}listings"
+           
         )
-    
+
         @session_id = session.id
+
+
     end
 
     def create
@@ -48,9 +52,9 @@ before_action :set_drainage, :set_material, :set_saucer, :set_shape, only: [:new
         @listing.seller_id = current_user.id
         @listing.buyer_id = "temp"
 
-        puts "-------"
-        pp params
-        puts "-------"
+        # puts "-------"
+        # pp params
+        # puts "-------"
 
             if @listing.errors.any?
                 set_material
@@ -89,6 +93,21 @@ before_action :set_drainage, :set_material, :set_saucer, :set_shape, only: [:new
         @listing.destroy
         redirect_to listings_path
     end
+
+    def buy 
+  
+        @listing.buyer_id = current_user.id
+        @listing.available = false
+            respond_to do |format|
+                if @listing.save
+                    format.html { redirect_to @listing, notice: 'Congrats' }
+                    # format.json { render :show, status: :created, location: @mushroom }
+                else
+                    format.html { render :new }
+                    # format.json { render json: @mushroom.errors, status: :unprocessable_entity }
+                end
+            end
+  end
 
         private
 

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end 
 
 
+  patch "/listings/whatever/:id", to: "listings#buy", as: "buy_listing"
 
   get "/payments/success", to: "payments#success"
   post "/payments/webhook", to: "payments#webhook"
