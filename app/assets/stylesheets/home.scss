@@ -5,7 +5,7 @@
 
 
 body {
-    background-image: url("bg-mob-skinny.jpg");
+    background-image: url("bg-web-skinny.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -38,13 +38,23 @@ body {
     justify-content: space-around;
  }
  main {
-   background-color: rgba(227, 144, 73, 0.3);
+   background-color: none;
    position: absolute;
    left: 5%;
    right: 5%;
    top: 25%;
    padding: 15px;
+  
  }
+.dashboard, .BrowsingWrapper, .ListingWrapper {
+   background-color: rgba(227, 144, 73, 0.3);
+   padding: 15px;
+   // margin: 15px;
+   // left: 5%;
+   // right: 5%;
+   // position: 
+   display: flex;
+}
 
  .listing {
    padding: 10px;
@@ -55,9 +65,6 @@ body {
 .ListingImage{
    display: flex;
    justify-content: space-around;
-}
-
-.BrowseImage {
 }
 
 .ListingWrapper {
@@ -75,6 +82,23 @@ body {
    flex: 1;
 }
 
+.BrowsingWrapper {
+   
+
+}
+
+.BrowsingImage {
+
+}
+
+ .BrowsingDetails {
+    display: flex;
+    justify-content: start;
+    flex: 1;
+ }
+
+
+
 .submit {
    display: flex;
    justify-content: space-around;
@@ -88,5 +112,11 @@ body {
       background-size: cover;
       height: 100%;
       background-attachment: fixed;
+   }
+
+
+   .sections {
+      display: flex;
+      flex-direction: column;
    }
  }

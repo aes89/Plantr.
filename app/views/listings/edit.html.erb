@@ -1,2 +1,4 @@
 <h1>Edit</h1>
 <%= render "form", listing: @listing, shape: @shape, material: @material, drainage: @drainage, saucer: @saucer %>
+
+<%= link_to "Delete", listing_path(@listing.id), method: :delete, data: {confirm: "Are you sure?"} if current_user.id == @listing.seller_id %>

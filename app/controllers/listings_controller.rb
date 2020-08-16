@@ -1,49 +1,39 @@
 class ListingsController < ApplicationController
-before_action :authenticate_user!
-before_action :set_listing, only: [:show, :edit, :update, :destroy, :buy]
-before_action :set_drainage, :set_material, :set_saucer, :set_shape, only: [:new, :edit, :update, :buy]
+before_action :authenticate_user!, except: [:home]
+before_action :set_listing, only: [:show, :edit, :update, :destroy]
+before_action :set_drainage, :set_material, :set_saucer, :set_shape, only: [:new, :edit, :update, :home]
 
+#show newest listing on home page, displays listing last added to Listing table.
+    def home
+        @listing = Listing.last 
+    end 
+
+    #"Browse" page displays all listings from Listings table, but filters for "available => true" (can be purchased) listings 
     def index
         @listing = Listing.all
-        @user_listing = Listing.where(:seller_id => current_user.id)
     end
-    
+
+    #to add new listings to Listings table.
     def new
         @listing = Listing.new
-        
+    end
+
+    #to display listings a user has been associated with as a buyer or a seller (values in the table, buyer id updated by webhook)
+    def transactions
+        @user_bought = Listing.where(:buyer_id => current_user.id)
+        #only unavalable listings have been sold, not all of user's current listings
+        @user_sold = Listing.where(:seller_id => current_user.id, :available => false)
+    end
+
+    def user_listings
+        @user_listing = Listing.where(:seller_id => current_user.id)
     end
 
     def show
-
+#comments are associated with a specific listing
         @comments = @listing.comments.all
 
-        # puts "++++++++hits def show - stripe"
-        # session = Stripe::Checkout::Session.create(
-        #     payment_method_types: ['card'],
-        #     customer_email: current_user.email,
-        #     line_items: [{
-        #         name: @listing.title,
-        #         description: @listing.description,
-        #         amount: @listing.price.to_i * 100,
-        #         # amount: (@listing.price * 100).to_i
-        #         currency: 'aud',
-        #         quantity: 1,
-        #     }],
-        #     payment_intent_data: {
-        #         metadata: {
-        #             buyer_id: current_user.id,
-        #             listing_id: @listing.id
-        #             # available: false
-        #         }
-        #     },
-        #     # success_url: "#{root_url}payments/success?buyerId=#{current_user.id}&listingId=#{@listing.id}",
-        #     success_url: "#{root_url}payments/success?buyer_id=#{current_user.id}&listing_id=#{@listing.id}",
-
-        #     cancel_url: "#{root_url}listings"
-           
-        # )
-
-        # @session_id = session.id
+        #to manage payments, using Stripe
         session = Stripe::Checkout::Session.create(
             payment_method_types: ['card'],
             customer_email: current_user.email,
@@ -65,22 +55,15 @@ before_action :set_drainage, :set_material, :set_saucer, :set_shape, only: [:new
         )
     
         @session_id = session.id
-
-
-
     end
 
     def create
         @listing = current_user.owned_listings.create(listing_params)
-
-        # @listing = Listing.new(listing_params)
         @listing.seller_id = current_user.id
+        #set "buyer" value as a temporary value, to be replaced with the user ID of a buyer with webhook after Stripe
         @listing.buyer_id = "temp"
 
-        # puts "-------"
-        # pp params
-        # puts "-------"
-
+        #fields that must be filled, make DRY in future
             if @listing.errors.any?
                 set_material
                 set_shape
@@ -101,6 +84,7 @@ before_action :set_drainage, :set_material, :set_saucer, :set_shape, only: [:new
         @listing.seller_id = current_user.id
         @listing.save
 
+              #fields that must be filled, make DRY in future
         if @listing.update(listing_params)
             redirect_to listings_path
         else    
@@ -112,26 +96,9 @@ before_action :set_drainage, :set_material, :set_saucer, :set_shape, only: [:new
         end
     end
 
-
-
     def destroy
         @listing.destroy
         redirect_to listings_path
-    end
-
-    def buy 
-  
-        @listing.buyer_id = current_user.id
-        @listing.available = false
-            respond_to do |format|
-                if @listing.save
-                    format.html { redirect_to @listing, notice: 'Congrats' }
-                    # format.json { render :show, status: :created, location: @mushroom }
-                else
-                    format.html { render :new }
-                    # format.json { render json: @mushroom.errors, status: :unprocessable_entity }
-                end
-            end
     end
 
         private
@@ -141,7 +108,6 @@ before_action :set_drainage, :set_material, :set_saucer, :set_shape, only: [:new
     end
 
     def set_listing
-        # @listing = Listing.find(params[:id])
         id = params[:id]
         @listing = Listing.find(id)
     end

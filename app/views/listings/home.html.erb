@@ -1,0 +1,37 @@
+<div class="sections">
+        <h3>Dashboard</h3>
+    <div class="dashboard">
+    <% if user_signed_in? %>
+        <ul>
+        <li><%= link_to "Post a Pot!", new_listing_path %></li>
+        <li><%= link_to "My Listings", "listings/user_listings" %></li>
+        <li><%= link_to "My Profile", "users/edit" %></li>
+        <li><%= link_to "My Transactions", "listings/transactions"%></li>
+        <li><%= link_to "Browse Listings", "listings" %></li>
+        </ul>
+      <% else %>
+        <%= link_to "Sign up ", new_user_registration_path %>&nbsp;or&nbsp;<%= link_to " log in ", new_user_session_path %>&nbsp;to buy and sell pots!
+      <% end %>
+        
+    </div>
+</div>
+<di class="sections">
+    <h3>Recently listed!</h3>
+    <div class="BrowsingWrapper">
+
+            <% if(@listing.available == true) %>
+                    <div class="BrowsingImage">
+                        <%= image_tag @listing.picture if @listing.picture.attached? %>
+                    </div>
+                    <div class="BrowsingDetails">
+                    <ul>
+                        <li><%= @listing.title %></li>
+                        <li><%= @listing.description %></li>
+                        <li>$<%= @listing.price %></li>
+                        <li><%= link_to "Browse More Listings!", "listings" %></li>
+                        </ul>
+                    </div>
+            <% end %>
+    </div>
+</div>
+

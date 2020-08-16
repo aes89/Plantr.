@@ -1,0 +1,33 @@
+<div class="sections">
+    <h3>Purchased:</h3>
+    <% @user_bought.each do |listing| %>
+
+            <div class="listing">
+                <div class="BrowseImage">
+                    <%= image_tag listing.picture if listing.picture.attached? %>
+                </div>
+                <div class="input">
+                    <%= listing.title %>
+                    $<%= listing.price %>
+                </div>
+                
+            </div>
+    <% end %>
+</div>
+
+<div class="sections">
+    <h3>Sold:</h3>
+    <% @user_sold.each do |listing| %>
+
+            <div class="listing">
+                <div class="BrowseImage">
+                    <%= image_tag listing.picture if listing.picture.attached? %>
+                </div>
+                <div class="input">
+                    <%= listing.title %>
+                    $<%= listing.price %>
+                </div>
+                
+            </div>
+    <% end %>
+</div>

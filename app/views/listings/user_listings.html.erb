@@ -1,26 +1,23 @@
+           <h3> My Listings:</h3>
+            <%= link_to "New listing", new_listing_path %>
 
- <div class="sections">
-    <h3> Available Pots: </h3>
-    <%= link_to "Post a Pot!", new_listing_path %>
-    <% @listing.each do |listing| %>
-        <% if(listing.available == true) %>
+<div class="sections">
+
+    <% @user_listing.each do |listing| %>
+
             <div class="listing">
                 <div class="BrowseImage">
                     <%= image_tag listing.picture if listing.picture.attached? %>
                 </div>
                 <div class="input">
-                    <%= listing.title %>
-                    $<%= listing.price %>
+                <ul>
+                    <li><%= listing.title %></li>
+                    <li>$<%= listing.price %></li>
+                    </ul>
                 </div>
-                <div class="UserButtons">
-                    <%= link_to "view", listing_path(listing) %>
+                    <%= link_to "View", listing_path(listing) %>
                     <%= link_to "Edit", edit_listing_path(listing.id) if current_user.id == listing.seller_id %>
                     <%= link_to "Delete", listing_path(listing.id), method: :delete, data: {confirm: "Are you sure?"} if current_user.id == listing.seller_id %>
-                </div>
             </div>
-        <% end %>
     <% end %>
-</div>
-
-
-
+</div<>

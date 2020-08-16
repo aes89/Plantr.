@@ -87,12 +87,9 @@
     <div class="submit">
 
     
-        <% if(@listing.available == true) %>
-        <p><%= link_to "Buy now!", buy_listing_path(@listing), method: :patch, :class => "button btn btn-success"  %> </p>
-        <% end  %>
-        
+    
         <button data-stripe="payment">
-        Pay Deposit <%= number_to_currency(@listing.price) %>
+        Buy Now! <%= number_to_currency(@listing.price) %>
         </button>
 
         <script src="https://js.stripe.com/v3/"></script>

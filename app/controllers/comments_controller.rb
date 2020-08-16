@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
+    #all comments/associated actions must be authenticated through Devise gem. 
     before_action :current_user
     before_action :authenticate_user!
-    before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
     def index
 
@@ -15,11 +15,8 @@ class CommentsController < ApplicationController
 
     end
 
+    # to create comment on a specific listing id and refresh listing page with new comment displayed
     def create
-        puts "******************"
-        puts params
-        puts "******************"
-
         @listing = Listing.find(params[:listing_id])
         @comments = @listing.comments.new(comment_params)
         @comments.user_id = current_user.id
@@ -27,13 +24,16 @@ class CommentsController < ApplicationController
         redirect_to listing_path(@listing)
     end
 
+    #comments cannot be edited as they are enquiries on purchases.
     def edit
+
     end
         
     def update
         
     end
 
+    #comments only to be deleted/removed from Comment table by listing owner, no the comment author. "Delete" button on view only shown to correct user.
     def destroy
         @listing = Listing.find(params[:listing_id])
         @comment = @listing.comments.find(params[:id])
@@ -47,8 +47,5 @@ class CommentsController < ApplicationController
       params.require(:comment).permit(:body, :name)
     end
 
-    def set_comment
- 
-    end
     
 end
