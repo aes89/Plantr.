@@ -6,11 +6,12 @@ Rails.application.routes.draw do
     resources :comments
   end 
 
-
   patch "/listings/whatever/:id", to: "listings#buy", as: "buy_listing"
+  # patch "/payments/success/:id", to: "listings#buy", as: "buy_listing"
 
   get "/payments/success", to: "payments#success"
   post "/payments/webhook", to: "payments#webhook"
+
 
   get "/404", to: "errors#not_found"
 
