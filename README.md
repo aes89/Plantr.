@@ -53,20 +53,19 @@ Click images to view full size.
 |Form for New Listing|Form for Edit Listing|View a Specific Listing - Comments Under the Listing (Header Present but Not Shown)|Successful Payment Page|
 
 #### Target Audience
-This app is designed for anyone looking to purchase or sell pots, planters or other containers for growing plants to other people in the community. 
+This app is designed for anyone looking to purchase or sell pots, planters or other containers for growing plants to other people in the community. Current features are designed for an individual selling a unique, second hand item rather than businesses/mass produced items, but this could be expanded on in the future.
 
 #### Tech Stack
 ##### Front-end
 - HTML
 - CSS
 - SCSS
-- Ruby/Embedded Ruby
-- Ruby on Rails
-
-  
-##### Back-end
 - Ruby 2.6.3
 - Ruby on Rails 6.0.3
+- Stripe
+- Postgres
+- AWS 
+- 
   
 ##### Database
 - Postgresql
@@ -94,30 +93,32 @@ As a user, from the home page I can register for an account by clicking "sign up
 
 As a user I can log out from any page using the navigation bar "sign out" link. I will be redirected to the home page.
 
-As a user looking to buy a planter, I can browse through listings with a photo and summarised information.
+As a buyer, I can browse through listings with a photo and summarised information.
 
-As a user looking to buy, I can view an individual listing and see a photo and detailed information of the listing.
+As a buyer, I can view an individual listing and see a photo and detailed information of the listing.
 
-As a user looking to buy, I can view and individual listing and comment on it to ask questions.
+As a user, I can view and individual listing and comment on it to ask questions/reply to questions.
 
-As a user looking to buy, I can purchase a listing by clicking "buy now" on a listing's individual page.
+As a buyer, I can purchase a listing by clicking "buy now" on a listing's individual page.
 
-As a user, I can log on from the home page and be directed to/navigate to my profile. 
+As a user, I can log on from the home page and navigate to my profile. 
 
-As a user or a user looking to sell, from my profile page I can update my profile details, delete my profile, and view my personal listings. 
+As a user, from my profile page I can update my profile details and delete my profile. 
 
-As a user, from my profile, I can delete my listing, or navigate to a listing to edit it.
+As a seller, from the home page dashboard section, I can navigate to a collection of my listings. From here, I can view/edit/delete my listings.
 
-As a user looking to sell, from my listing's edit page, I can update the specifications of my listing.
+As a user looking to sell, from my listing's edit page, I can update the specifications of my listing or delete my listing.
 
 As a user looking to sell, I can comment on my own listing's page and delete other user's comments.
+
+As a user, from the homepage dashboard section I can navigate to a list of bought and sold listings. 
 
 ### Wire Frames
 | | Mobile | Web/Tablet |
 |:---:|:---:|:---:|
-|Home Page| <img src="resources/wireframes/wireframe_home_mobile.png" />|<img src="resources/wireframes/wireframe_home_web.png" />|
-|Home Page - Logged In| <img src="resources/wireframes/wireframe_home_auth_mobile.png" />|<img src="resources/wireframes/wireframe_home_auth_web.png" />|
-|Sign Up Page|<img src="resources/wireframes/wireframe_signup_mobile.png" />|<img src="resources/wireframes/wireframe_signup_web.png" />|
+|Home Page| <img src="resources/wireframes/home_noauth_mob.png" />|<img src="resources/wireframes/home_noauth_web.png" />|
+|Home Page - Logged In| <img src="resources/wireframes/home_auth_mob.png" />|<img src="resources/wireframes/home_auth_web.png" />|
+|Sign Up Page|<img src="resources/wireframes/signup_mob.png" />|<img src="resources/wireframes/signup_web.png" />|
 |Login Page|<img src="resources/wireframes/wireframe_login_mobile.png" />|<img src="resources/wireframes/wireframe_login_web.png" />|
 |User Profile Page - add edit listing button|<img src="resources/wireframes/wireframe_profile_mobile.png" />|<img src="resources/wireframes/wireframe_profile_web.png" />|
 |New Listing|<img src="resources/wireframes/wireframe_newlisting_mobile.png" />|<img src="resources/wireframes/wireframe_newlisting_web.png" />|
