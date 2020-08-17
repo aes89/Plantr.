@@ -9,14 +9,8 @@ Plantr. will improve user's browsing ability by prompting sellers to list more s
 For example, a user views a pot listed by a seller. The photo does not show if there is drainage and is taken on a plain background, so there is nothing to reference size. The user requires a specific size and drainage but likes the style of the seller's listing. The user messages the seller to ask about size and drainage, and the seller could take a day or more to get back to the user, only for the user to find the pot is inappropriate. The seller is disappointed that they have not sold their listing and a day has been wasted for both parties. 
 
 ### Deployed app:
-<a href="https://plantr-marketplace.herokuapp.com/">https://plantr-marketplace.herokuapp.com/</a>
-But it's broken. Very sad. I was trying to fix AWS credentials which could be accessed through the rails console but didn't seem to be accessible by Heroku and the app would crash. Things I tried:
-- https://devcenter.heroku.com/articles/getting-started-with-rails5#run-the-rails-console
-- https://stackoverflow.com/questions/56527148/on-heroku-with-rails-5-2-cannot-load-rails-config-active-storage-service-aw
-- https://stackoverflow.com/questions/50365348/rails-5-2-credentials-yaml-enc-and-master-key-not-working-on-heroku
-https://blog.eq8.eu/til/rails-52-credentials-tricks.html
-- https://stackoverflow.com/questions/49661757/rails-5-2-with-master-key-heroku-deployment
-Then it wouldn't regenerate credentials/master key (NameError) and failed to precompile in Heroku and locally, so I unsucessfully googled that, noted the looming deadline, cried and gave up. Hooray!
+<a href="https://damp-anchorage-55875.herokuapp.com/">https://damp-anchorage-55875.herokuapp.com/</a>
+
 
 ### Github repository:
 <a href="https://github.com/aes89/Plantr.">https://github.com/aes89/Plantr.</a>
@@ -120,11 +114,8 @@ As a user, from the homepage dashboard section I can navigate to a list of bough
 |Sign Up Page|<img src="resources/wireframes/signup_mob.png" />|<img src="resources/wireframes/signup_web.png" />|
 |Login Page|<img src="resources/wireframes/login_mob.png" />|<img src="resources/wireframes/login_web.png" />|
 |Edit Profile|<img src="resources/wireframes/edit_profile_mob.png" />|<img src="resources/wireframes/edit_profile_web.png" />|
-|New Listing|<img src="resources/wireframes/wireframe_newlisting_mobile.png" />|<img src="resources/wireframes/wireframe_newlisting_web.png" />|
-|Update Listing|<img src="resources/wireframes/wireframe_updatelisting_mobile.png" />|<img src="resources/wireframes/wireframe_updatelisting_web.png" />|
-|Browse Listings|<img src="resources/wireframes/wireframe_browse_mobile.png" />|<img src="resources/wireframes/wireframe_browse_web.png" />|
-|Comment on Own Listing|<img src="resources/wireframes/wireframe_comment_listingowner_mobile.png" />|<img src="resources/wireframes/wireframe_comment_listingowner_web.png" />|
-|Comment on Someone Else's Listing|<img src="resources/wireframes/wireframe_comment_notlistingowner_mobile.png" />|<img src="resources/wireframes/wireframe_comment_notlistingowner_web.png" />|
+|Individual Listing Page|<img src="resources/wireframes/listing_mob.png" />|<img src="resources/wireframes/listing_web.png" />|
+
 
 
 ### ERD
