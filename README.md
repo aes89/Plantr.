@@ -134,8 +134,9 @@ Implemented ERD:
 Most aspects of the User functions were handles with the Devise Gem. Devise has many inbuilt features that are established in the model such as authenticating users, registering users, validating users and remembering users.
 
 ###### Relationships:
-  User has_many :owned_listings, :class_name => 'Listing', :foreign_key => 'seller_id' 
-  User has_many :bought_listings, :class_name => 'Listing', :foreign_key => 'buyer_id'
+has_many :owned_listings, :class_name => 'Listing', :foreign_key => 'seller_id' 
+has_many :bought_listings, :class_name => 'Listing', :foreign_key => 'buyer_id'
+
   This allows a user id to act both as a buyer and a seller id and reduces duplication withing the schema. 
   Previously, listings were dependent on their seller (i.e. when a user's account was deleted all of their listings were deleted), and this will need to be reconfigured to the seller id.
 
@@ -143,10 +144,14 @@ Most aspects of the User functions were handles with the Devise Gem. Devise has 
 The listing model works to validate input when making a listing. Many features of the listings have set values which are defined here (e.g. a user cannot type in anything for "shape", they are given the options "other", "round" or "square") using enums. 
 
 ###### Relationships:
-    belongs_to :seller, :class_name => 'User' (a listing is associated with a user id, that is the "seller").
-    has_one :buyer, :class_name => 'User' (a listing can only be associated with one user id, that is the "buyer").
-    has_one_attached :picture (allows for one image to be uploaded and attached to the listing id)
-    has_many :comments, dependent: :destroy (comments associated with this listing are deleted with the listing)
+    belongs_to :seller, :class_name => 'User'
+    A listing is associated with a user id, that is the "seller".
+    has_one :buyer, :class_name => 'User' 
+    A listing can only be associated with one user id, that is the "buyer".
+    has_one_attached :picture
+    Allows for one image to be uploaded and attached to the listing id.
+    has_many :comments, dependent: :destroy
+    Comments associated with this listing are deleted with the listing.
 
 ##### Comment
 
