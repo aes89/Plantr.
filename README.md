@@ -30,20 +30,20 @@ This app was developed to connect people in the community to buy pots, planters 
 #### Sitemap
 Planned site map:
 
-<img src ="resources/sitemap/initial_site_map.jpeg" alt="Initial Site Map for Plantr. App" height="500"/>
+<img src ="docs/sitemap/initial_site_map.jpeg" alt="Initial Site Map for Plantr. App" height="500"/>
 
 Final site map:
 
-<img src ="resources/sitemap/final_site_map.jpeg" alt="Final Site Map for Plantr. App" height="500"/>
+<img src ="docs/sitemap/final_site_map.jpeg" alt="Final Site Map for Plantr. App" height="500"/>
 
 #### Screenshots
 Click images to view full size.
-|<img src="resources/screenshots/home_notauthenticated.png" height = "200" />|<img src="resources/screenshots/login.png" height = "200" />|<img src="resources/screenshots/signup.png" height = "200" />|<img src="resources/screenshots/home_authenticated.png" height = "200" />|
+|<img src="docs/screenshots/home_notauthenticated.png" height = "200" />|<img src="docs/screenshots/login.png" height = "200" />|<img src="docs/screenshots/signup.png" height = "200" />|<img src="docs/screenshots/home_authenticated.png" height = "200" />|
 |---|---|---|---|
 |Home Page - Not Authenticated|Log In|Sign Up|Home Page - Authenticated|
-|<img src="resources/screenshots/edit_profile.png" height = "200" />|<img src="resources/screenshots/edit_profile.png" height = "200" />|<img src="resources/screenshots/users_transactions.png" height = "200" />|<img src="resources/screenshots/users_listings.png" height = "200" />|<img src="resources/screenshots/browse_listings.png" height = "200" />|
+|<img src="docs/screenshots/edit_profile.png" height = "200" />|<img src="docs/screenshots/edit_profile.png" height = "200" />|<img src="docs/screenshots/users_transactions.png" height = "200" />|<img src="docs/screenshots/users_listings.png" height = "200" />|<img src="docs/screenshots/browse_listings.png" height = "200" />|
 |Edit Profile|User's Transactions|All User's Listings|Browse All Listings|
-|<img src="resources/screenshots/new_listing.png" height = "200" />|<img src="resources/screenshots/edit_listing.png" height = "200" />|<img src="resources/screenshots/specific_listing.png" height = "200" />|<img src="resources/screenshots/after_payment.png" height = "200" />|
+|<img src="docs/screenshots/new_listing.png" height = "200" />|<img src="docs/screenshots/edit_listing.png" height = "200" />|<img src="docs/screenshots/specific_listing.png" height = "200" />|<img src="docs/screenshots/after_payment.png" height = "200" />|
 |Form for New Listing|Form for Edit Listing|View a Specific Listing - Comments Under the Listing (Header Present but Not Shown)|Successful Payment Page|
 
 #### Target Audience
@@ -109,23 +109,23 @@ As a user, from the homepage dashboard section I can navigate to a list of bough
 ### Wire Frames
 | | Mobile | Web/Tablet |
 |:---:|:---:|:---:|
-|Home Page| <img src="resources/wireframes/home_noauth_mob.png" />|<img src="resources/wireframes/home_noauth_web.png" />|
-|Home Page - Logged In| <img src="resources/wireframes/home_auth_mob.png" />|<img src="resources/wireframes/home_auth_web.png" />|
-|Sign Up Page|<img src="resources/wireframes/signup_mob.png" />|<img src="resources/wireframes/signup_web.png" />|
-|Login Page|<img src="resources/wireframes/login_mob.png" />|<img src="resources/wireframes/login_web.png" />|
-|Edit Profile|<img src="resources/wireframes/edit_profile_mob.png" />|<img src="resources/wireframes/edit_profile_web.png" />|
-|Individual Listing Page|<img src="resources/wireframes/listing_mob.png" />|<img src="resources/wireframes/listing_web.png" />|
+|Home Page| <img src="docs/wireframes/home_noauth_mob.png" />|<img src="docs/wireframes/home_noauth_web.png" />|
+|Home Page - Logged In| <img src="docs/wireframes/home_auth_mob.png" />|<img src="docs/wireframes/home_auth_web.png" />|
+|Sign Up Page|<img src="docs/wireframes/signup_mob.png" />|<img src="docs/wireframes/signup_web.png" />|
+|Login Page|<img src="docs/wireframes/login_mob.png" />|<img src="docs/wireframes/login_web.png" />|
+|Edit Profile|<img src="docs/wireframes/edit_profile_mob.png" />|<img src="docs/wireframes/edit_profile_web.png" />|
+|Individual Listing Page|<img src="docs/wireframes/listing_mob.png" />|<img src="docs/wireframes/listing_web.png" />|
 
 
 
 ### ERD
 Planned ERD:
 
-<img src="resources/ERD/ERD_initial.jpeg" height = "500" />
+<img src="docs/ERD/ERD_initial.jpeg" height = "500" />
 
 Implemented ERD:
 
-<img src="resources/ERD/ERD_final.jpeg" height = "500" />
+<img src="docs/ERD/ERD_final.jpeg" height = "500" />
 
 ### High-Level Components and Model Relationships
 #### Models
@@ -220,8 +220,8 @@ Plantr. is hosted by Heroku. Heroku supports the webhook from Stripe as well as 
 
 
 ### Database Schema Design and Relations
-<img src="resources/schema/schema1.png" width="450" />
-<img src="resources/schema/schema2.png" width="450" />
+<img src="docs/schema/schema1.png" width="450" />
+<img src="docs/schema/schema2.png" width="450" />
 
 #### Users
 Users have relations with both of the other tables. The relation with comments is simple: a user can have many comments. The relation with listings is slightly more complex. A user can have many listings, and the user_id functions as 2 foreign key values for the listings (defined in the listing model).
@@ -252,9 +252,9 @@ Trello also allows for cards to be assigned to specific team members, however th
 
 |Early Trello Board|  | |
 |---|:---:|:---:|
-|<img src="resources/trello/Trello_22072020_1.png" alt="Trello board, day 1, image 1 of 3" width="200" height ="125" />|<img src="resources/trello/Trello_22072020_2.png" alt="Trello board, day 1, image 2 of 3" width="200" height ="125" />|<img src="resources/trello/Trello_22072020_3.png" alt="Trello board, day 1, image 3 of 3" width="200" height ="125" />|
+|<img src="docs/trello/Trello_22072020_1.png" alt="Trello board, day 1, image 1 of 3" width="200" height ="125" />|<img src="docs/trello/Trello_22072020_2.png" alt="Trello board, day 1, image 2 of 3" width="200" height ="125" />|<img src="docs/trello/Trello_22072020_3.png" alt="Trello board, day 1, image 3 of 3" width="200" height ="125" />|
 |Part 1|Part 2|Part 3|
 |Checklist| | |
-|<img src="resources/trello/Trello_22072020_checklist.png" alt="Trello checklist example" width="200" height ="150" />| | |
+|<img src="docs/trello/Trello_22072020_checklist.png" alt="Trello checklist example" width="200" height ="150" />| | |
 
 Click on the screen shots to view them full size.
