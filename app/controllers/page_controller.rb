@@ -1,7 +1,6 @@
 class PageController < ApplicationController
-  def home
-  end
 
+#For future feature, to display generic error messaege to user.
   def not_found
   end
 end
