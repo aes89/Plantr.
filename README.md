@@ -136,8 +136,8 @@ Implemented ERD:
 ### Description of Database Relations
 
 ### Database Schema Design
-<img src="resources/schema/schema1.png" height = "500" />
-<img src="resources/schema/schema2.png" height = "500" />
+<img src="resources/schema/schema1.png" width="300" />
+<img src="resources/schema/schema2.png" width="300" />
 
 
 
