@@ -87,7 +87,6 @@ This app is designed for anyone looking to purchase or sell pots, planters or ot
 - Lucidchart
 
 ### User Stories
-to edit: add headings for as user/buyer/seller
 
 As a user, from the home page I can register for an account by clicking "sign up". I will be taken to the registration page where I can enter my name, email and password.
 
@@ -119,8 +118,8 @@ As a user, from the homepage dashboard section I can navigate to a list of bough
 |Home Page| <img src="resources/wireframes/home_noauth_mob.png" />|<img src="resources/wireframes/home_noauth_web.png" />|
 |Home Page - Logged In| <img src="resources/wireframes/home_auth_mob.png" />|<img src="resources/wireframes/home_auth_web.png" />|
 |Sign Up Page|<img src="resources/wireframes/signup_mob.png" />|<img src="resources/wireframes/signup_web.png" />|
-|Login Page|<img src="resources/wireframes/wireframe_login_mobile.png" />|<img src="resources/wireframes/wireframe_login_web.png" />|
-|User Profile Page - add edit listing button|<img src="resources/wireframes/wireframe_profile_mobile.png" />|<img src="resources/wireframes/wireframe_profile_web.png" />|
+|Login Page|<img src="resources/wireframes/login_mob.png" />|<img src="resources/wireframes/login_web.png" />|
+|Edit Profile|<img src="resources/wireframes/edit_profile_mob.png" />|<img src="resources/wireframes/edit_profile_web.png" />|
 |New Listing|<img src="resources/wireframes/wireframe_newlisting_mobile.png" />|<img src="resources/wireframes/wireframe_newlisting_web.png" />|
 |Update Listing|<img src="resources/wireframes/wireframe_updatelisting_mobile.png" />|<img src="resources/wireframes/wireframe_updatelisting_web.png" />|
 |Browse Listings|<img src="resources/wireframes/wireframe_browse_mobile.png" />|<img src="resources/wireframes/wireframe_browse_web.png" />|
