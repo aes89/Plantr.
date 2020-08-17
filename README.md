@@ -6,10 +6,17 @@ There are many marketplace apps to connect members of the community to sell/exch
 
 Plantr. will improve user's browsing ability by prompting sellers to list more specific features including; drainage, material, shape and dimensions.
 
-For example, a user views a pot listed by a seller. The photo does not show if there is drainage and is taken on a plain background, so there is nothing to reference size. The user requires a specific size and drainage but likes the style of the seller's listing. The user messages the seller to ask about size and drainage, and the seller could take a day or more to get back to the user, only for the user to find the pot is inappropriate, the seller is disappointed that they have not sold their listing and a day has been wasted. 
+For example, a user views a pot listed by a seller. The photo does not show if there is drainage and is taken on a plain background, so there is nothing to reference size. The user requires a specific size and drainage but likes the style of the seller's listing. The user messages the seller to ask about size and drainage, and the seller could take a day or more to get back to the user, only for the user to find the pot is inappropriate. The seller is disappointed that they have not sold their listing and a day has been wasted for both parties. 
 
 ### Deployed app:
 <a href="https://plantr-marketplace.herokuapp.com/">https://plantr-marketplace.herokuapp.com/</a>
+But it's broken. Very sad. I was trying to fix AWS credentials which could be accessed through the rails console but didn't seem to be accessible by Heroku and the app would crash. Things I tried:
+- https://devcenter.heroku.com/articles/getting-started-with-rails5#run-the-rails-console
+- https://stackoverflow.com/questions/56527148/on-heroku-with-rails-5-2-cannot-load-rails-config-active-storage-service-aw
+- https://stackoverflow.com/questions/50365348/rails-5-2-credentials-yaml-enc-and-master-key-not-working-on-heroku
+https://blog.eq8.eu/til/rails-52-credentials-tricks.html
+- https://stackoverflow.com/questions/49661757/rails-5-2-with-master-key-heroku-deployment
+Then it wouldn't regenerate credentials/master key (NameError) and failed to precompile in Heroku and locally, so I unsucessfully googled that, noted the looming deadline, cried and gave up. Hooray!
 
 ### Github repository:
 <a href="https://github.com/aes89/Plantr.">https://github.com/aes89/Plantr.</a>
@@ -20,15 +27,25 @@ This app was developed to connect people in the community to buy pots, planters 
 
 #### Functionality/Features
 
+- Users: a user can sign up for an account. This gives them access to the other functions (they can only view the home page without signing in) as well as updating their profile (name, email and password).
+- Listings: a user can both make and purchase listings. Once a user has made a listing they can return to it to edit it and delete it. A user can view a list of all of their listings, as well as browse through all available listings (listing summaries are displayed on the "browse" page) and view a listing's specifics on the listing's dedicated page.
+- Comments: users can leave comments on a specific listing's page. Only the seller (who created the listing) can remove comments, in case they are inappropriate or irrelevant (e.g. another user may make repeated requests to lower the price).
+- Payments: a user can purchase a listing which is supported by Stripe. THey click "buy now" and are redirected to Stripe, who manages the payment. Once complete they are redirected back to the app, the listing is marked as "unavailable" and is no longer shown on the "browse" page.
+- Transactions: users can view the listings that they have bought and sold on a "transactions" page.
+
 #### Sitemap
 Planned site map:
 
-<img src ="resources/sitemap/initial_site_map.jpeg" alt="Site Map for Plantr. App" height="500"/>
+<img src ="resources/sitemap/initial_site_map.jpeg" alt="Initial Site Map for Plantr. App" height="500"/>
+
+Final site map:
+
+<img src ="resources/sitemap/final_site_map.jpeg" alt="Final Site Map for Plantr. App" height="500"/>
 
 #### Screenshots
 
 #### Target Audience
-This app is designed for anyone looking to purchase or sell pots, planters or other containers for growing plants to/from people in the community. 
+This app is designed for anyone looking to purchase or sell pots, planters or other containers for growing plants to other people in the community. 
 
 #### Tech Stack
 ##### Front-end
