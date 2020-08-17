@@ -43,7 +43,10 @@ Final site map:
 <img src ="resources/sitemap/final_site_map.jpeg" alt="Final Site Map for Plantr. App" height="500"/>
 
 #### Screenshots
-<img src="resources/screenshots/home_notauthenticated.png" height = "200" />
+
+|<img src="resources/screenshots/home_notauthenticated.png" height = "200" />|<img src="resources/screenshots/home_authenticated.png" height = "200" />|
+|---|---|
+|Home Page - Not Authenticated|Home Page - Authenticated|
 
 #### Target Audience
 This app is designed for anyone looking to purchase or sell pots, planters or other containers for growing plants to other people in the community. 
