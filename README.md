@@ -220,8 +220,7 @@ Plantr. is hosted by Heroku. Heroku supports the webhook from Stripe as well as 
 
 
 ### Database Schema Design and Relations
-<img src="docs/schema/schema1.png" width="450" />
-<img src="docs/schema/schema2.png" width="450" />
+<img src="docs/ERD/ERD_final.jpeg" />
 
 #### Users
 Users have relations with both of the other tables. The relation with comments is simple: a user can have many comments. The relation with listings is slightly more complex. A user can have many listings, and the user_id functions as 2 foreign key values for the listings (defined in the listing model).
