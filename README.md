@@ -127,8 +127,31 @@ Implemented ERD:
 
 <img src="resources/ERD/ERD_final.jpeg" height = "500" />
 
-### High-Level Components
+### High-Level Components and Model Relationships
+#### Models
 
+##### User
+Most aspects of the User functions were handles with the Devise Gem. Devise has many inbuilt features that are established in the model such as authenticating users, registering users, validating users and remembering users.
+
+###### Relationships:
+  User has_many :owned_listings, :class_name => 'Listing', :foreign_key => 'seller_id' 
+  User has_many :bought_listings, :class_name => 'Listing', :foreign_key => 'buyer_id'
+  This allows a user id to act both as a buyer and a seller id and reduces duplication withing the schema. 
+  Previously, listings were dependent on their seller (i.e. when a user's account was deleted all of their listings were deleted), and this will need to be reconfigured to the seller id.
+
+##### Listing
+The listing model works to validate input when making a listing. Many features of the listings have set values which are defined here (e.g. a user cannot type in anything for "shape", they are given the options "other", "round" or "square") using enums. 
+
+###### Relationships:
+    belongs_to :seller, :class_name => 'User' (a listing is associated with a user id, that is the "seller").
+    has_one :buyer, :class_name => 'User' (a listing can only be associated with one user id, that is the "buyer").
+    has_one_attached :picture (allows for one image to be uploaded and attached to the listing id)
+    has_many :comments, dependent: :destroy (comments associated with this listing are deleted with the listing)
+
+##### Comment
+
+#### Controllers
+#### Views
 ### Third Party Services
 
 ### Description of Models
@@ -136,8 +159,8 @@ Implemented ERD:
 ### Description of Database Relations
 
 ### Database Schema Design
-<img src="resources/schema/schema1.png" width="300" />
-<img src="resources/schema/schema2.png" width="300" />
+<img src="resources/schema/schema1.png" width="450" />
+<img src="resources/schema/schema2.png" width="450" />
 
 
 

@@ -1,5 +1,5 @@
 class Listing < ApplicationRecord
-    # belongs_to :user
+  
     belongs_to :seller, :class_name => 'User'
     has_one :buyer, :class_name => 'User'
     has_one_attached :picture
