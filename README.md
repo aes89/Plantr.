@@ -134,8 +134,9 @@ Implemented ERD:
 Most aspects of the User functions were handles with the Devise Gem. Devise has many inbuilt features that are established in the model such as authenticating users, registering users, validating users and remembering users.
 
 ###### Relationships:
-has_many :owned_listings, :class_name => 'Listing', :foreign_key => 'seller_id' 
-has_many :bought_listings, :class_name => 'Listing', :foreign_key => 'buyer_id'
+    has_many :owned_listings, :class_name => 'Listing', :foreign_key => 'seller_id' 
+
+    has_many :bought_listings, :class_name => 'Listing', :foreign_key => 'buyer_id'
 
   This allows a user id to act both as a buyer and a seller id and reduces duplication withing the schema. 
   Previously, listings were dependent on their seller (i.e. when a user's account was deleted all of their listings were deleted), and this will need to be reconfigured to the seller id.
@@ -149,19 +150,35 @@ The listing model works to validate input when making a listing. Many features o
     has_one :buyer, :class_name => 'User' 
     A listing can only be associated with one user id, that is the "buyer".
     has_one_attached :picture
-    Allows for one image to be uploaded and attached to the listing id.
+    Allows for one image to be uploaded and attached to the listing id. Pictures were initially stores in active records, but were moved to AWS
     has_many :comments, dependent: :destroy
     Comments associated with this listing are deleted with the listing.
 
 ##### Comment
+    Comments have one author (user id) and one listing (listing id) that they are associated with. This association allows the comments to be displayed on the correct listing and the author's name to be automatically displayed.
+
+###### Relationships:
+    belongs_to :listing
+    belongs_to :user
 
 #### Controllers
 #### Views
+
+
 ### Third Party Services
 
-### Description of Models
+#### Devise
+User features were implemented using the Devise gem.
 
-### Description of Database Relations
+#### AWS
+Plantr. uses amazon web services to host images that users upload for their listings.
+
+#### Stripe
+Plantr.'s payments are handled by Stripe, which allows for securely managed payments. Stripe returns a webhook that updates the listing to "unavailable" and updates the "buyer id" to the id of the user that made the payment. 
+
+##### Heroku
+Plantr. is hosted by Heroku. Heroku supports the webhook from Stripe as well as the database; PostreSQL. 
+
 
 ### Database Schema Design
 <img src="resources/schema/schema1.png" width="450" />
