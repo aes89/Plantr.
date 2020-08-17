@@ -47,6 +47,8 @@ Final site map:
 |<img src="resources/screenshots/home_notauthenticated.png" height = "200" />|<img src="resources/screenshots/login.png" height = "200" />|<img src="resources/screenshots/signup.png" height = "200" />|<img src="resources/screenshots/home_authenticated.png" height = "200" />|
 |---|---|---|---|
 |Home Page - Not Authenticated|Log In|Sign Up|Home Page - Authenticated|
+|<img src="resources/screenshots/edit_profile.png" height = "200" />|<img src="resources/screenshots/edit_profile.png" height = "200" />|<img src="resources/screenshots/users_transactions.png" height = "200" />|<img src="resources/screenshots/users_listings.png" height = "200" />|<img src="resources/screenshots/browse_listings.png" height = "200" />|
+|Edit Profile|User's Transactions|All User's Listings|Browse All Listings|
 
 #### Target Audience
 This app is designed for anyone looking to purchase or sell pots, planters or other containers for growing plants to other people in the community. 
@@ -56,10 +58,9 @@ This app is designed for anyone looking to purchase or sell pots, planters or ot
 - HTML
 - CSS3
 - SCSS
-- Embedded Ruby
-- ?Bulma
-- ?Javascript
-- ?jQuery
+- Ruby/Embedded Ruby
+- Ruby on Rails
+
   
 ##### Back-end
 - Ruby 2.6.3
