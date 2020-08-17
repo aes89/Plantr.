@@ -44,9 +44,9 @@ Final site map:
 
 #### Screenshots
 
-|<img src="resources/screenshots/home_notauthenticated.png" height = "200" />|<img src="resources/screenshots/home_authenticated.png" height = "200" />|
-|---|---|
-|Home Page - Not Authenticated|Home Page - Authenticated|
+|<img src="resources/screenshots/home_notauthenticated.png" height = "200" />|<img src="resources/screenshots/login.png" height = "200" />|<img src="resources/screenshots/signup.png" height = "200" />|<img src="resources/screenshots/home_authenticated.png" height = "200" />|
+|---|---|---|---|
+|Home Page - Not Authenticated|Log In|Sign Up|Home Page - Authenticated|
 
 #### Target Audience
 This app is designed for anyone looking to purchase or sell pots, planters or other containers for growing plants to other people in the community. 
